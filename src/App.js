@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div>
+      <h2>Full Name Display</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -30,7 +31,9 @@ function App() {
           onChange={(e) => setLastName(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!firstName || !lastName}>
+          Submit
+        </button>
       </form>
 
       {submitted && (
