@@ -1,46 +1,45 @@
 import { useState } from "react";
-import "./App.css";
 
 function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [fullName, setFullName] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(!firstName || !lastName) return;
+    if (!firstName || !lastName) return;
 
-    setFullName(`${firstName} ${lastName}`);
+    setSubmitted(true);
   };
 
   return (
-    <div className="container">
+    <div>
       <form onSubmit={handleSubmit}>
         <input
-              type="text"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)
-              }
-              required
-          />
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
 
-          <input
-              type="text"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)
-              }
-              required
-          />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
 
-          <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
 
-      {fullName && <p>Full Name: {fullName}</p>}
+      {submitted && (
+        <p>
+          Full Name: {firstName} {lastName}
+        </p>
+      )}
     </div>
-  )
+  );
 }
 
 export default App;
