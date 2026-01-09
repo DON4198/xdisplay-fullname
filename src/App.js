@@ -26,6 +26,15 @@ function App() {
               required
           />
 
+          <input
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)
+              }
+              required
+          />
+
           <button type="submit">Submit</button>
       </form>
 
