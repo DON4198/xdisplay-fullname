@@ -3,14 +3,19 @@ import { useState } from "react";
 function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e) => {
+  const [fullName, setFullName] = useState("");
+    
+  const handleSubmit = (e) => { 
     e.preventDefault();
 
-    if (!firstName || !lastName) return;
+    if (!firstName || !lastName) {
+      setFullName("");
+      return;
+    } 
 
-    setSubmitted(true);
+    setFullName(`${firstName} ${lastName}`);
+
+
   };
 
   return (
@@ -37,12 +42,12 @@ function App() {
 
         <br></br>
 
-        <button type="submit" disabled={!firstName || !lastName}>
+        <button type="submit">
           Submit
         </button>
       </form>
 
-      {submitted && (
+      {fullName && (
         <p>
           Full Name: {firstName} {lastName}
         </p>
