@@ -4,7 +4,7 @@ function App() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
-    
+
   const handleSubmit = (e) => { 
     e.preventDefault();
 
@@ -29,6 +29,7 @@ function App() {
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
+          required
         />
         <br></br>
 
@@ -38,6 +39,7 @@ function App() {
           placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
+          required
         />
 
         <br></br>
