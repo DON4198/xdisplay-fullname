@@ -15,21 +15,27 @@ function App() {
 
   return (
     <div>
-      <h2>Full Name Display</h2>
+      
       <form onSubmit={handleSubmit}>
+        <h2>Full Name Display</h2>
+        First Name: 
         <input
           type="text"
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
+        <br></br>
 
+        Last Name:
         <input
           type="text"
           placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
+
+        <br></br>
 
         <button type="submit" disabled={!firstName || !lastName}>
           Submit
